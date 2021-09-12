@@ -66,7 +66,8 @@ Route::get('issue/{id}', [IssueController::class,'show'])->name('issue.show');
 Route::get('issue/{id}/edit', [IssueController::class,'edit'])->name('issue.edit');
 Route::put('issue/{id}', [IssueController::class,'update'])->name('issue.update');
 Route::delete('issue/{id}', [IssueController::class,'destroy'])->name('issue.destroy');
-
+Route::post('issue/{id}/restore', [IssueController::class,'restore'])->name('issue.restore');
+Route::get('issue/trash',[IssueController::class,'trash'])->name('issue.trash');
 
 
 
