@@ -99,7 +99,13 @@
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-
+{{--                        <div class="form-group">--}}
+{{--                            <label for="return_date" class="control-label">Return Date</label>--}}
+{{--                            <input type="text" name="return_date" class="form-control" id="return_date" value="<?php echo date("Y-m-d") ?>" >--}}
+{{--                            @error('issue_date')--}}
+{{--                            <p class="text-danger">{{ $message }}</p>--}}
+{{--                            @enderror--}}
+{{--                        </div>--}}
 
 
 

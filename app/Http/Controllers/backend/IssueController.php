@@ -44,6 +44,9 @@ class IssueController extends Controller
         $data['student_id'] = Student::all();
         $data['book_id'] = Book::all();
         $data['batch_id'] = Batch::all();
+        $data['active_student']=Student::where('status','1')->get();
+        $data['active_batch']=Batch::where('status','1')->get();
+
         return view('issue/create',compact('data'));
     }
 
@@ -209,15 +212,15 @@ class IssueController extends Controller
 //        // download PDF file with download method
 //        return $pdf->download('pdf_file.pdf');
 //    }
-    public function createPDF()
-    {
-        $data = Issue::all();
-
-        // share data to view
-        view()->share('users-pdf',$data);
-        $pdf = PDF::loadView('pdf_view', $data);;
-        return $pdf->download('users.pdf');
-    }
+//    public function createPDF()
+//    {
+//        $data = Issue::all();
+//
+//        // share data to view
+//        view()->share('users-pdf',$data);
+//        $pdf = PDF::loadView('pdf_view', $data);;
+//        return $pdf->download('users.pdf');
+//    }
 
 
 

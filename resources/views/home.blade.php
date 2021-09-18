@@ -31,7 +31,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Students</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">100+</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['student']}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-users fa-2x text-gray-300"></i>
@@ -48,7 +48,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> Total Numbers of Books</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">20+</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['book']}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -64,10 +64,10 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Number of Issued Book</div>
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Number of Active Batch</div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">20</div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$data['active_batch']}}</div>
                                         </div>
                                         <div class="col">
                                             <div class="progress progress-sm mr-2">
@@ -90,8 +90,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Number of Books in Library</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Number of faculty</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['faculty']}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>
@@ -102,30 +102,32 @@
                 </div>
             </div>
 
+
+
         <section class="content">
 
 
             <!-- Default box -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Dashboard</h3>
+{{--            <div class="card">--}}
+{{--                <div class="card-header">--}}
+{{--                    <h3 class="card-title">Dashboard</h3>--}}
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fas fa-minus"></i></button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fas fa-times"></i></button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    Start creating your amazing application!
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                    Footer
-                </div>
-                <!-- /.card-footer-->
-            </div>
+{{--                    <div class="card-tools">--}}
+{{--                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">--}}
+{{--                            <i class="fas fa-minus"></i></button>--}}
+{{--                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">--}}
+{{--                            <i class="fas fa-times"></i></button>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    Start creating your amazing application!--}}
+{{--                </div>--}}
+{{--                <!-- /.card-body -->--}}
+{{--                <div class="card-footer">--}}
+{{--                    Footer--}}
+{{--                </div>--}}
+{{--                <!-- /.card-footer-->--}}
+{{--            </div>--}}
             <!-- /.card -->
 
         </section>

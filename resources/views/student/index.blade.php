@@ -50,7 +50,6 @@
                         </tr>
                                 </thead>
                                 <tbody>
-
                         @foreach($data['rows'] as $i => $row)
                             <tr>
                                 <td>{{$i+1}}</td>

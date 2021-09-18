@@ -19,6 +19,8 @@ class StudentController extends Controller
     public function index()
     {
         $data['rows'] = Student::all();
+        $data['active_batch']=Batch::where('status','1')->get();
+        $data['sb_active']=Student::where('batch_id','1')->get();
         return view('student/index',compact('data'));
     }
 

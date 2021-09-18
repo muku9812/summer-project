@@ -47,6 +47,8 @@ class BookController extends Controller
     function show($id)
     {
         $data['row'] = Book::find($id);
+        $data['rows'] = Book::all();
+        $data['book']=Book::count();
         if(!$data['row']){
             request()->session()->flash('error','Invalid Request');
             return redirect()->route('book.index');

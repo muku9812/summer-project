@@ -5,6 +5,17 @@
 
 @section('content')
 
+    <style type="text/css">
+        /*if you want to remove some content in print display then use .no_print class on it */
+        @media print {
+            #datatable_wrapper .row:first-child {display:none;}
+            #datatable_wrapper .row:last-child {display:none;}
+            .no_print {display:none;}
+        }
+
+    </style>
+
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -13,9 +24,10 @@
                     <div class="col-sm-6">
                         <h1>Students information
                             <a href="{{route('issue.create')}}" class="btn btn-success">Issue Book</a>
-                            <a href="{{route('issue.trash')}}" class="btn btn-secondary">Book Returned List</a>
-                            <a class="btn btn-primary" href="{{route('export-pdf')}}">Export to PDF</a>
-{{--                            <form action = '/excel'>--}}
+
+                            <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
+
+                            {{--                            <form action = '/excel'>--}}
 {{--                                <input type="submit" value="Download excel">--}}
 {{--                                <form>--}}
                         </h1>
@@ -66,7 +78,7 @@
                                 <th>Issued Date</th>
                                 <th>Return Date</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th class="no_print">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -94,7 +106,7 @@
 
 
 
-                                    <td>
+                                    <td class="no_print">
                                         <a href="{{route('issue.show',$row->id)}}" class="btn btn-success">View</a>
                                         <a href="{{route('issue.edit',$row->id)}}" class="btn btn-primary">Renew & Return</a>
 {{--                                        <a href="{{route('issue.edit2',$row->id)}}" class="btn btn-secondary">Return</a>--}}
@@ -128,3 +140,24 @@
 {{--    });--}}
 {{--</script>--}}
 {{--    @endsection--}}
+
+
+
+
+
+
+@section('js')
+    <script type="text/javascript" src="{{ asset('backend/plugins/print_any_part/dist/jQuery.print.min.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            $("#printBtn").on('click', function() {
+
+                $.print("#printable");
+
+            });
+
+        });
+    </script>
+
+@endsection

@@ -35,13 +35,13 @@
                             <label for="student_id" class="control-label">Student Name</label>
                             <select name="student_id" class="form-control" id="student_id">
                                 <option value="">Select Student</option>
-                                @foreach($data['student_id'] as $students)
+                                @foreach($data['active_student'] as $students)
                                     <option value="{{$students->id}}">{{$students->name}}</option>
                                 @endforeach
                             </select>
 
                             @error('student_id')
-                            <p class="text-danger">{{ $message }}</p>
+                            <p class="text-danger">{{ 'Please select student name' }}</p>
                             @enderror
                         </div>
 
@@ -54,7 +54,7 @@
                                 @endforeach
                             </select>
                             @error('book_id')
-                            <p class="text-danger">{{ $message }}</p>
+                            <p class="text-danger">{{ 'please select the Book name' }}</p>
                             @enderror
                         </div>
 
@@ -64,12 +64,12 @@
                             <label for="batch_id" class="control-label">Batch</label>
                             <select name="batch_id" class="form-control" id="batch_id">
                                 <option value=" ">Select Class</option>
-                                @foreach($data['batch_id'] as $batch)
+                                @foreach($data['active_batch'] as $batch)
                                     <option value="{{$batch->id}}">{{$batch->year}}</option>
                                 @endforeach
                             </select>
                             @error('batch_id')
-                            <p class="text-danger">{{ $message }}</p>
+                            <p class="text-danger">{{ "please select the batch" }}</p>
                             @enderror
                         </div>
 
@@ -89,10 +89,10 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="return_date" class="control-label">Expire_date</label>
+                            <label for="return_date" class="control-label">Return Date</label>
                             <input type="date" name="return_date" class="form-control" id="return_date">
                             @error('return_date')
-                            <p class="text-danger">{{ $message }}</p>
+                            <p class="text-danger">{{ 'Date must be of future.' }}</p>
                             @enderror
                         </div>
 

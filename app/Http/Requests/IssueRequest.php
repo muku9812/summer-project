@@ -30,8 +30,8 @@ class IssueRequest extends FormRequest
             'book_id' => 'required',
             'batch_id' => 'required',
             'user_id' => 'required',
-//            'return_date' => 'required',
-            'return_date' => 'required|date|date_format:Y-m-d|after:xxxx',
+            'return_date' =>
+                'required|date|date_format:Y-m-d|after:xxxx'
 
 
 

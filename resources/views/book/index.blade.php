@@ -27,6 +27,9 @@
             <div class="card">
 
                 <div class="dataTable" id="tables">
+
+
+
                     @if(Session::has('success'))
                         <p class="alert alert-success">{{Session::get('success')}}</p>
                     @endif
@@ -43,6 +46,7 @@
                            <th>Price</th>
                            <th> No.of Pages</th>
                            <th>Edition</th>
+                            <th>Number of Book</th>
                            <th>Action</th>
                             </tr>
                             <thead>
@@ -57,6 +61,9 @@
                                <td>{{$row->price}}</td>
                                <td>{{$row->pages}}</td>
                                <td>{{$row->edition}}</td>
+                               <td>{{$row->quantity}} </td>
+
+
 
 
                                <td>
