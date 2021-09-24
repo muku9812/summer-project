@@ -24,7 +24,7 @@ class BatchRequest extends FormRequest
     public function rules()
     {
         return [
-            'year' => 'required',
+            'year' => 'required|unique:batch,year',
             'status' => 'required'
         ];
     }

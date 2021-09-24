@@ -1,6 +1,19 @@
 @extends('layouts.backend')
 
 @section('content')
+
+
+    <style type="text/css">
+        /*if you want to remove some content in print display then use .no_print class on it */
+        @media print {
+            #datatable_wrapper .row:first-child {display:none;}
+            #datatable_wrapper .row:last-child {display:none;}
+            .no_print {display:none;}
+        }
+
+    </style>
+
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -9,6 +22,7 @@
                     <div class="col-sm-6">
                         <h1>List Book
                         <a href="{{route('book.create')}}" class="btn btn-success">Add Book</a>
+                            <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -47,7 +61,7 @@
                            <th> No.of Pages</th>
                            <th>Edition</th>
                             <th>Number of Book</th>
-                           <th>Action</th>
+                           <th class= "no_print">Action</th>
                             </tr>
                             <thead>
                             <tbody>
@@ -66,7 +80,7 @@
 
 
 
-                               <td>
+                               <td class="no_print">
                                    <a href="{{route('book.show',$row->id)}}" class="btn btn-success">View</a>
                                    <a href="{{route('book.edit',$row->id)}}" class="btn btn-primary">Update</a>
                                  <form action="{{route('book.destroy',$row->id)}}" method="post">
@@ -93,3 +107,18 @@
     </div>
 
     @endsection
+@section('js')
+    <script type="text/javascript" src="{{ asset('backend/plugins/print_any_part/dist/jQuery.print.min.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            $("#printBtn").on('click', function() {
+
+                $.print("#printable");
+
+            });
+
+        });
+    </script>
+
+@endsection

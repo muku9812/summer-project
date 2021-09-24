@@ -92,7 +92,7 @@
                             <label for="return_date" class="control-label">Return Date</label>
                             <input type="date" name="return_date" class="form-control" id="return_date">
                             @error('return_date')
-                            <p class="text-danger">{{ 'Date must be of future.' }}</p>
+                            <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 

@@ -47,6 +47,7 @@ class IssueController extends Controller
         $data['active_student']=Student::where('status','1')->get();
         $data['active_batch']=Batch::where('status','1')->get();
 
+
         return view('issue/create',compact('data'));
     }
 
@@ -115,7 +116,7 @@ class IssueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(IssueRequest $request,$id)
     {
         $data['row'] = Issue::find($id);
         if(!$data ['row']){

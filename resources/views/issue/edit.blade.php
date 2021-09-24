@@ -110,7 +110,7 @@
 
 
                         <div class="form-group">
-                            <label for="return_date" class="control-label">Expire_date</label>
+                            <label for="return_date" class="control-label">Return Date</label>
                             <input type="date" name="return_date" class="form-control" id="return_date" value="{{$data['row']->return_date}}">
                             @error('return_date')
                             <p class="text-danger">{{ $message }}</p>

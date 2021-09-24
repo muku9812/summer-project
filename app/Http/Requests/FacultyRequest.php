@@ -24,7 +24,7 @@ class FacultyRequest extends FormRequest
     public function rules()
     {
         return [
-            'faculty' => 'required',
+            'faculty' => 'required|unique:faculty,faculty',
             'status' => 'required'
         ];
     }

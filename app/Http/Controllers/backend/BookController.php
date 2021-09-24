@@ -41,7 +41,14 @@ class BookController extends Controller
     public function index()
     {
         $data['rows'] = Book::all();
-        return view('book/index', compact('data'));
+        $cal = 0;
+        foreach ($data['rows'] as $i => $row){
+            $cal = $cal + $row->quantity;
+        }
+//        dd($cal);
+
+
+        return view('book/index', compact('data','cal'));
     }
 
     function show($id)

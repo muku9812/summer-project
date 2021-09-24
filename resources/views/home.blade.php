@@ -12,8 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                         </ol>
                     </div>
                 </div>
@@ -30,8 +29,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Students</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['student']}}</div>
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Number of Active Students</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['active_student']}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-users fa-2x text-gray-300"></i>
@@ -47,8 +46,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> Total Numbers of Books</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['book']}}</div>
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Number of Remaining Books</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$rem}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -90,8 +89,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Number of faculty</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['faculty']}}</div>
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Number Active of faculty</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['active_faculty']}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>
@@ -106,6 +105,28 @@
 
         <section class="content">
 
+            <div class="dataTable" id="tables">
+            <table id="datatable" class="table table-striped" style="width:40%" >
+                <tr>
+                    <th>Total Number of Books</th><td>{{$cal}}</td>
+                </tr>
+                <tr>
+                    <th>Total Number of Batches</th><td>{{$data['batch']}}</td>
+                </tr>
+                <tr>
+                    <th>Total Number of Faculty</th><td>{{$data['faculty']}}</td>
+                </tr>
+                <tr>
+                    <th>Total Number of Book issued</th><td>{{$data['issue_book']}}</td>
+                </tr>
+                <tr>
+                    <th>Total Number of Students</th><td>{{$data['student']}}</td>
+                </tr>
+
+
+
+            </table>
+            </div>
 
             <!-- Default box -->
 {{--            <div class="card">--}}

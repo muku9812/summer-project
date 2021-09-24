@@ -6,7 +6,7 @@
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">Library Management System</span>
+        <span class="brand-text font-weight-light">LMS</span>
     </a>
 
     <!-- Sidebar -->
@@ -188,7 +188,7 @@
                 <li class="nav-item">
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" class="nav-link">
+                                    document.getElementById('logout-form').submit();" class="nav-link">
                                     <i class="nav-icon fas fa-sign-out-alt"></i>
                                     <p>
                                         Logout

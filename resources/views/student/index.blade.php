@@ -1,6 +1,19 @@
 @extends('layouts.backend')
 
 @section('content')
+
+    <style type="text/css">
+        /*if you want to remove some content in print display then use .no_print class on it */
+        @media print {
+            #datatable_wrapper .row:first-child {display:none;}
+            #datatable_wrapper .row:last-child {display:none;}
+            .no_print {display:none;}
+        }
+
+    </style>
+
+
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -9,12 +22,13 @@
                     <div class="col-sm-6">
                         <h1>Students information
                             <a href="{{route('student.create')}}" class="btn btn-success">Add Student</a>
+                            <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active"> <a href="#">Add Book</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+
                         </ol>
                     </div>
                 </div>
@@ -46,7 +60,7 @@
                             <th>Faculty</th>
                             <th>Created_At</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th class="no_print">Action</th>
                         </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +70,7 @@
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->email}}</td>
                                 <td>{{$row->FacultyId->faculty}}</td>
-                                <td>{{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}</td>
+                                <td>{{$row->created_at}}</td>
 
                                 <td>
                                     @if($row->status==1)
@@ -66,7 +80,7 @@
                                         @endif
                                 </td>
 
-                                <td>
+                                <td class="no_print">
                                     <a href="{{route('student.show',$row->id)}}" class="btn btn-success">View</a>
                                     <a href="{{route('student.edit',$row->id)}}" class="btn btn-primary">Update</a>
                                     <form action="{{route('student.destroy',$row->id)}}" method="post">
@@ -93,3 +107,23 @@
         </section>
 
 @endsection
+
+
+
+
+        @section('js')
+            <script type="text/javascript" src="{{ asset('backend/plugins/print_any_part/dist/jQuery.print.min.js') }}"></script>
+            <script type="text/javascript">
+                $(function() {
+
+                    $("#printBtn").on('click', function() {
+
+                        $.print("#printable");
+
+                    });
+
+                });
+            </script>
+
+@endsection
+

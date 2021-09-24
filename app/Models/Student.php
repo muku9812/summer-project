@@ -16,7 +16,6 @@ class Student extends Model
         'faculty',
         'batch_id',
         'faculty_id',
-        'password',
         'phone',
         'status'
     ];

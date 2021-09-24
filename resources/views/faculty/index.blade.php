@@ -1,6 +1,18 @@
 @extends('layouts.backend')
 
 @section('content')
+
+
+    <style type="text/css">
+        /*if you want to remove some content in print display then use .no_print class on it */
+        @media print {
+            #datatable_wrapper .row:first-child {display:none;}
+            #datatable_wrapper .row:last-child {display:none;}
+            .no_print {display:none;}
+        }
+
+    </style>
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -9,6 +21,7 @@
                     <div class="col-sm-6">
                         <h1>Faculty List
                             <a href="{{route('faculty.create')}}" class="btn btn-success">Add Faculty</a>
+                            <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -41,6 +54,7 @@
                                 <th>SN</th>
                                 <th>Faculty</th>
                                 <th>Status</th>
+                                <th class= "no_print">Action</th>
                             </tr>
                                 </thead>
 
@@ -58,10 +72,10 @@
                                         @endif
                                     </td>
 
-                                    <td>
+                                    <td class="no_print">
                                         <a href="{{route('faculty.show',$row->id)}}" class="btn btn-success">View</a>
                                         <a href="{{route('faculty.edit',$row->id)}}"  class="btn btn-primary">Update</a>
-                                        <form action="#" method="post">
+                                        <form action="{{route('faculty.destroy',$row->id)}}" method="post">
                                             <input type="hidden" name="_method" value="delete" />
                                             @csrf
                                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -86,5 +100,21 @@
     </div>
     </div>
 
+
+@endsection
+
+@section('js')
+    <script type="text/javascript" src="{{ asset('backend/plugins/print_any_part/dist/jQuery.print.min.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            $("#printBtn").on('click', function() {
+
+                $.print("#printable");
+
+            });
+
+        });
+    </script>
 
 @endsection

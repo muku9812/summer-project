@@ -13,8 +13,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active"> <a href="#">Add Book</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                         </ol>
                     </div>
                 </div>
@@ -65,13 +64,13 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" placeholder="Enter Password" name="password" id="password" >
-                            @error('password')
-                            <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="password">Password</label>--}}
+{{--                            <input type="password" class="form-control" placeholder="Enter Password" name="password" id="password" >--}}
+{{--                            @error('password')--}}
+{{--                            <p class="text-danger">{{ $message }}</p>--}}
+{{--                            @enderror--}}
+{{--                        </div>--}}
 
                         <div class="form-group">
                             <label for="phone">Phone</label>

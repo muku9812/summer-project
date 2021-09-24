@@ -124,7 +124,7 @@ class FacultyController extends Controller
         } else {
             request()->session()->flash('error', 'Invalid request');
         }
-        return redirect()->route('Faculty.index');
+        return redirect()->route('faculty.index');
 
     }
 }

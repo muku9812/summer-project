@@ -17,7 +17,6 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('password');
             $table->boolean('status')->default('0');
             $table->string('phone');
 

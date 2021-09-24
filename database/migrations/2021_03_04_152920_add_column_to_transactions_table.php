@@ -21,6 +21,7 @@ class AddColumnToTransactionsTable extends Migration
             $table->boolean('status')->default('0')->after('batch_id');
 
 
+
         });
     }
 

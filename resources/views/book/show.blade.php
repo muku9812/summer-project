@@ -51,6 +51,12 @@
                             <th>Pages</th>
                             <td>{{$data['row']->pages}}</td>
                         </tr>
+
+                        <tr>
+                            <th>Remaining Books</th>
+                            <td>#</td>
+                        </tr>
+
                         <tr>
                             <th>Edition</th>
                             <td>{{$data['row']->edition}}</td>

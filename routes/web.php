@@ -28,13 +28,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['web','auth'])->group(function() {
+    Route::get('admin/home',[\App\Http\Controllers\HomeController::class,'handleAdmin'])->name('admin.route')->middleware('admin');
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::get('book/add', [BookController::class, 'create']);
+////Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+////Route::get('book/add', [BookController::class, 'create']);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::resource('book',BookController::class);
-//Route::resource('student',StudentController::class);
+////Route::resource('book',BookController::class);
+////Route::resource('student',StudentController::class);
 
 
 
@@ -44,6 +46,7 @@ Route::middleware(['web','auth'])->group(function() {
     Route::resource('faculty',FacultyController::class);
     Route::resource('student',StudentController::class);
     Route::resource('book',BookController::class);
+
 
 
     Route::get('issue/pdf_view', [IssueController::class, 'createPDF'])->name('export-pdf');

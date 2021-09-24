@@ -75,6 +75,7 @@
                                 <th>Return Date</th>
                                 <td>{{$data['row']->return_date}}</td>
                             </tr>
+
                             <tr>
                                 <th>Created At</th>
                                 <td>{{$data['row']->created_at}}</td>
