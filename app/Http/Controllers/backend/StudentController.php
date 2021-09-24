@@ -115,7 +115,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        {
+
             $data['row'] = Student::find($id);
             if ($data['row']) {
                 if ($data['row']->delete()) {
@@ -128,6 +128,21 @@ class StudentController extends Controller
                 request()->session()->flash('error', 'Invalid request');
             }
             return redirect()->route('student.index');
-        }
+
     }
+    public function active()
+    {
+        $data['sb_active']=Student::where('status','1')->get();
+        return view('student/active',compact('data'));
+//        return view('student/active');
+    }
+    public function deactive()
+    {
+        $data['sb_deactive']=Student::where('status','0')->get();
+        return view('student/deactive',compact('data'));
+//        return view('student/active');
+    }
+
+
+
 }

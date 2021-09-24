@@ -7,7 +7,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>{{$data['row']->name}}'S Information
+
+                        <h1>{{$data['row']->name}} S Information
                             <a href="{{route('student.create')}}" class="btn btn-success">Add Student</a>
                             <a href="{{route('student.index')}}" class="btn btn-info">Student List</a>
                         </h1>

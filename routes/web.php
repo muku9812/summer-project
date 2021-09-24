@@ -41,18 +41,19 @@ Route::middleware(['web','auth'])->group(function() {
 
 
     Route::resource('announcement',AnnouncementController::class);
-    Route::resource('issue',IssueController::class);
+//    Route::resource('issue',IssueController::class);
     Route::resource('batch',BatchController::class);
     Route::resource('faculty',FacultyController::class);
-    Route::resource('student',StudentController::class);
+//    Route::resource('student',StudentController::class);
     Route::resource('book',BookController::class);
+
 
 
 
     Route::get('issue/pdf_view', [IssueController::class, 'createPDF'])->name('export-pdf');
     Route::get('welcome', [WelcomeController::class, 'index'])->name('welcome');
 
-});
+
 
 
 
@@ -73,14 +74,17 @@ Route::middleware(['web','auth'])->group(function() {
 //    Route::delete('book/{id}', [BookController::class, 'destroy'])->name('book.destroy');
 //    Route::get('book/{id}/edit', [BookController::class, 'edit'])->name('book.edit');
 //    Route::put('book/{id}/edit', [BookController::class, 'update'])->name('book.update');
-//
-//    Route::get('student/create', [StudentController::class, 'create'])->name('student.create');
-//    Route::post('student', [StudentController::class, 'store'])->name('student.store');
-//    Route::get('student', [StudentController::class, 'index'])->name('student.index');
-//    Route::get('student/{id}', [StudentController::class, 'show'])->name('student.show');
-//    Route::delete('student/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
-//    Route::get('student/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
-//    Route::put('student/{id}/edit', [StudentController::class, 'update'])->name('student.update');
+    Route::get('student/active', [StudentController::class, 'active'])->name('student.active');
+    Route::get('student/deactive', [StudentController::class, 'deactive'])->name('student.deactive');
+    Route::get('student/create', [StudentController::class, 'create'])->name('student.create');
+    Route::post('student', [StudentController::class, 'store'])->name('student.store');
+    Route::get('student', [StudentController::class, 'index'])->name('student.index');
+    Route::get('student/{id}', [StudentController::class, 'show'])->name('student.show');
+    Route::delete('student/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
+    Route::get('student/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
+    Route::put('student/{id}/edit', [StudentController::class, 'update'])->name('student.update');
+
+
 
 //    Route::get('announcement/create', [AnnouncementController::class, 'create'])->name('announcement.create');
 //    Route::post('announcement', [AnnouncementController::class, 'store'])->name('announcement.store');
@@ -94,17 +98,19 @@ Route::middleware(['web','auth'])->group(function() {
 
 
 
+    Route::get('issue/pending', [IssueController::class, 'pending'])->name('issue.pending');
+    Route::get('issue/return', [IssueController::class, 'return'])->name('issue.return');
+    Route::get('issue/changeStatus', [IssueController::class, 'changeStatus'])->name('issue.changeStatus');
+    Route::get('issue/create', [IssueController::class, 'create'])->name('issue.create');
+    Route::post('issue', [IssueController::class, 'store'])->name('issue.store');
+    Route::get('issue', [IssueController::class, 'index'])->name('issue.index');
+    Route::get('issue/{id}', [IssueController::class, 'show'])->name('issue.show');
+    Route::get('issue/{id}/edit', [IssueController::class, 'edit'])->name('issue.edit');
+    Route::put('issue/{id}', [IssueController::class, 'update'])->name('issue.update');
+    Route::delete('issue/{id}', [IssueController::class, 'destroy'])->name('issue.destroy');
+    Route::post('issue/{id}/restore', [IssueController::class, 'restore'])->name('issue.restore');
+    Route::get('issue/trash', [IssueController::class, 'trash'])->name('issue.trash');
 
-//    Route::get('issue/changeStatus', [IssueController::class, 'changeStatus'])->name('issue.changeStatus');
-//    Route::get('issue/create', [IssueController::class, 'create'])->name('issue.create');
-//    Route::post('issue', [IssueController::class, 'store'])->name('issue.store');
-//    Route::get('issue', [IssueController::class, 'index'])->name('issue.index');
-//    Route::get('issue/{id}', [IssueController::class, 'show'])->name('issue.show');
-//    Route::get('issue/{id}/edit', [IssueController::class, 'edit'])->name('issue.edit');
-//    Route::put('issue/{id}', [IssueController::class, 'update'])->name('issue.update');
-//    Route::delete('issue/{id}', [IssueController::class, 'destroy'])->name('issue.destroy');
-//    Route::post('issue/{id}/restore', [IssueController::class, 'restore'])->name('issue.restore');
-//    Route::get('issue/trash', [IssueController::class, 'trash'])->name('issue.trash');
 
 
 //    Route::get('batch/create', [BatchController::class, 'create'])->name('batch.create');
@@ -137,3 +143,4 @@ Route::middleware(['web','auth'])->group(function() {
 //Route::get('/issue/pdf', [IssueController::class, 'createPDF']);
 
 
+});

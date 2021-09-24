@@ -29,7 +29,7 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Number of Active Students</div>
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href="{{route('student.active')}}"> Number of Active Students</a></div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['active_student']}}</div>
                                 </div>
                                 <div class="col-auto">
@@ -63,7 +63,7 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Number of Active Batch</div>
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="#">Number of Active Batch</a></div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$data['active_batch']}}</div>
@@ -108,19 +108,19 @@
             <div class="dataTable" id="tables">
             <table id="datatable" class="table table-striped" style="width:40%" >
                 <tr>
-                    <th>Total Number of Books</th><td>{{$cal}}</td>
+                    <th><a href="{{route('book.index')}}">Total Number of Books</a></th><td>{{$cal}}</td>
                 </tr>
                 <tr>
-                    <th>Total Number of Batches</th><td>{{$data['batch']}}</td>
+                    <th><a href="{{route('batch.index')}}">Total Number of Batches</a></th><td>{{$data['batch']}}</td>
                 </tr>
                 <tr>
-                    <th>Total Number of Faculty</th><td>{{$data['faculty']}}</td>
+                    <th><a href="{{route('faculty.index')}}">Total Number of Faculty</a></th><td>{{$data['faculty']}}</td>
                 </tr>
                 <tr>
-                    <th>Total Number of Book issued</th><td>{{$data['issue_book']}}</td>
+                    <th><a href="{{route('issue.pending')}}">Total Number of Book issued</a></th><td>{{$data['issue_book']}}</td>
                 </tr>
                 <tr>
-                    <th>Total Number of Students</th><td>{{$data['student']}}</td>
+                    <th><a href="{{route('student.index')}}">Total Number of Students</a></th><td>{{$data['student']}}</td>
                 </tr>
 
 

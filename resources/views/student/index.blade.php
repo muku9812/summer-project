@@ -23,6 +23,7 @@
                         <h1>Students information
                             <a href="{{route('student.create')}}" class="btn btn-success">Add Student</a>
                             <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
+                            <a href="{{route('student.active')}}" class="btn btn-primary text-white" id="printBtn">Active</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">

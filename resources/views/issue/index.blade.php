@@ -24,7 +24,8 @@
                     <div class="col-sm-6">
                         <h1>Students information
                             <a href="{{route('issue.create')}}" class="btn btn-success">Issue Book</a>
-
+                            <a href="{{route('issue.pending')}}" class="btn btn-success">Pending List</a>
+                            <a href="{{route('issue.return')}}" class="btn btn-info">Return List</a>
                             <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
 
                             {{--                            <form action = '/excel'>--}}

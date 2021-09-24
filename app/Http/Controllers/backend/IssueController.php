@@ -8,6 +8,7 @@ use App\Models\Batch;
 use App\Models\Book;
 use App\Models\Issue;
 use App\Models\Student;
+use Hamcrest\Core\Is;
 use Illuminate\Http\Request;
 //use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -85,6 +86,7 @@ class IssueController extends Controller
 
             $transactions = Issue::all();
             return view('index', compact('transactions'));
+
 
         }
         return view('issue.show', compact('data'));
@@ -223,6 +225,21 @@ class IssueController extends Controller
 //        return $pdf->download('users.pdf');
 //    }
 
+    public function pending()
+    {
+        $data=Issue::all();
+        $data['rows'] = Issue::all();
+        $data['pending'] = Issue::where('status','0')->get();
+        return view('issue/pending',compact('data'));
 
+    }
+    public function return()
+    {
+        $data=Issue::all();
+        $data['rows'] = Issue::all();
+        $data['return'] = Issue::where('status','1')->get();
+        return view('issue/return',compact('data'));
+
+    }
 
 }
