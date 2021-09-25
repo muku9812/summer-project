@@ -13,7 +13,7 @@ class Issue extends Model
 
     protected $table = 'transactions';
 
-    protected $fillable = ['student_id','user_id','book_id','batch_id','return_date','issue_date','renew_data','status','Book_return_on'];
+    protected $fillable = ['student_id','user_id','book_id','batch_id','return_date','issue_date','renew_date','status','Book_return_on'];
 
     public function StudentId(){
         return$this->belongsTo(Student::class,'student_id');

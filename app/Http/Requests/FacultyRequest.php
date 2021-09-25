@@ -24,7 +24,7 @@ class FacultyRequest extends FormRequest
     public function rules()
     {
         return [
-            'faculty' => 'required|unique:faculty,faculty',
+            'faculty' => 'required|regex:/^[a-zA-Z ]+$/',
             'status' => 'required'
         ];
     }

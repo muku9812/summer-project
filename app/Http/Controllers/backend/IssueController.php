@@ -118,7 +118,7 @@ class IssueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(IssueRequest $request,$id)
+    public function update(Request $request,$id)
     {
         $data['row'] = Issue::find($id);
         if(!$data ['row']){
@@ -240,6 +240,18 @@ class IssueController extends Controller
         $data['return'] = Issue::where('status','1')->get();
         return view('issue/return',compact('data'));
 
+    }
+    public function renew($id)
+    {
+        $data['student_id'] = Student::all();
+        $data['book_id'] = Book::all();
+        $data['batch_id'] = Batch::all();
+        $data['row'] = Issue::find($id);
+        if(!$data ['row']){
+            request()->session()->flash('error','Invalid Request');
+            return redirect()->route('issue.index');
+        }
+        return view('issue.renew', compact('data'));
     }
 
 }

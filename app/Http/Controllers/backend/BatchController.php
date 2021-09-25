@@ -88,7 +88,7 @@ class BatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BatchRequest $request, $id)
     {
         $data['row'] = Batch::find($id);
         if(!$data ['row']){
@@ -139,6 +139,21 @@ class BatchController extends Controller
         $member->save();
 
         return response()->json(['success'=>'Status change successfully.']);
+    }
+
+
+    public function active()
+    {
+        $data['rows'] = Batch::all();
+        $data['active']=Batch::where('status','1')->get();
+        return view('batch/active', compact('data'));
+    }
+
+    public function deactive()
+    {
+        $data['rows'] = Batch::all();
+        $data['deactive']=Batch::where('status','0')->get();
+        return view('batch/deactive', compact('data'));
     }
 
 }

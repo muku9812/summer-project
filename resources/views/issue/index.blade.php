@@ -78,6 +78,8 @@
                                 <th>Issued By</th>
                                 <th>Issued Date</th>
                                 <th>Return Date</th>
+                                <th>Book Return On</th>
+
                                 <th>Status</th>
                                 <th class="no_print">Action</th>
                             </tr>
@@ -93,6 +95,7 @@
                                     <td>{{$row->user_id}}</td>
                                     <td>{{$row->issue_date}}</td>
                                     <td>{{$row->return_date}}</td>
+                                    <td>{{$row->Book_return_on}}</td>
 {{--                                    <td>--}}
 
 {{--                                        <input data-id="{{$row->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Returned" data-off="Pending" {{ $row->status ? 'checked' : '' }} >--}}
@@ -109,7 +112,8 @@
 
                                     <td class="no_print">
                                         <a href="{{route('issue.show',$row->id)}}" class="btn btn-success">View</a>
-                                        <a href="{{route('issue.edit',$row->id)}}" class="btn btn-primary">Renew & Return</a>
+                                        <a href="{{route('issue.edit',$row->id)}}" class="btn btn-danger">Return</a>
+                                        <a href="{{route('issue.renew',$row->id)}}" class="btn btn-dark">Renew</a>
 {{--                                        <a href="{{route('issue.edit2',$row->id)}}" class="btn btn-secondary">Return</a>--}}
 {{--                                        <form action="#" method="post">--}}
 {{--                                            <input type="hidden" name="_method" value="delete" />--}}

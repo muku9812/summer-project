@@ -52,7 +52,7 @@
                             </thead>
                             <tbody>
 
-                            @foreach($data['rows'] as $i => $row)
+                            @foreach($data['active'] as $i => $row)
                                 <tr>
                                     <td>{{$i+1}}</td>
                                     <td>{{$row->year}}</td>
@@ -66,13 +66,6 @@
 
                                     <td>
                                         <a href="{{route('batch.show',$row->id)}}" class="btn btn-success">View</a>
-                                        <a href="{{route('batch.edit',$row->id)}}"  class="btn btn-primary">Update</a>
-                                        <form action="{{route('batch.destroy',$row->id)}}" method="post">
-                                            <input type="hidden" name="_method" value="delete" />
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-
-                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

@@ -42,8 +42,8 @@ Route::middleware(['web','auth'])->group(function() {
 
     Route::resource('announcement',AnnouncementController::class);
 //    Route::resource('issue',IssueController::class);
-    Route::resource('batch',BatchController::class);
-    Route::resource('faculty',FacultyController::class);
+//    Route::resource('batch',BatchController::class);
+//    Route::resource('faculty',FacultyController::class);
 //    Route::resource('student',StudentController::class);
     Route::resource('book',BookController::class);
 
@@ -74,6 +74,10 @@ Route::middleware(['web','auth'])->group(function() {
 //    Route::delete('book/{id}', [BookController::class, 'destroy'])->name('book.destroy');
 //    Route::get('book/{id}/edit', [BookController::class, 'edit'])->name('book.edit');
 //    Route::put('book/{id}/edit', [BookController::class, 'update'])->name('book.update');
+
+
+
+
     Route::get('student/active', [StudentController::class, 'active'])->name('student.active');
     Route::get('student/deactive', [StudentController::class, 'deactive'])->name('student.deactive');
     Route::get('student/create', [StudentController::class, 'create'])->name('student.create');
@@ -97,7 +101,7 @@ Route::middleware(['web','auth'])->group(function() {
 
 
 
-
+    Route::get('issue/{id}/renew', [IssueController::class, 'renew'])->name('issue.renew');
     Route::get('issue/pending', [IssueController::class, 'pending'])->name('issue.pending');
     Route::get('issue/return', [IssueController::class, 'return'])->name('issue.return');
     Route::get('issue/changeStatus', [IssueController::class, 'changeStatus'])->name('issue.changeStatus');
@@ -106,6 +110,7 @@ Route::middleware(['web','auth'])->group(function() {
     Route::get('issue', [IssueController::class, 'index'])->name('issue.index');
     Route::get('issue/{id}', [IssueController::class, 'show'])->name('issue.show');
     Route::get('issue/{id}/edit', [IssueController::class, 'edit'])->name('issue.edit');
+
     Route::put('issue/{id}', [IssueController::class, 'update'])->name('issue.update');
     Route::delete('issue/{id}', [IssueController::class, 'destroy'])->name('issue.destroy');
     Route::post('issue/{id}/restore', [IssueController::class, 'restore'])->name('issue.restore');
@@ -113,23 +118,25 @@ Route::middleware(['web','auth'])->group(function() {
 
 
 
-//    Route::get('batch/create', [BatchController::class, 'create'])->name('batch.create');
-//    Route::post('batch', [BatchController::class, 'store'])->name('batch.store');
-//    Route::get('batch', [BatchController::class, 'index'])->name('batch.index');
-//    Route::get('batch/{id}', [BatchController::class, 'show'])->name('batch.show');
-//    Route::get('batch/{id}/edit', [BatchController::class, 'edit'])->name('batch.edit');
-//    Route::put('batch/{id}/edit', [BatchController::class, 'update'])->name('batch.update');
-//    Route::delete('batch/{id}', [BatchController::class, 'destroy'])->name('batch.destroy');
-//    Route::post('batch/search', [BatchController::class, 'search'])->name('batch.search');
+    Route::get('batch/deactive', [BatchController::class, 'deactive'])->name('batch.deactive');
+    Route::get('batch/active', [BatchController::class, 'active'])->name('batch.active');
+    Route::get('batch/create', [BatchController::class, 'create'])->name('batch.create');
+    Route::post('batch', [BatchController::class, 'store'])->name('batch.store');
+    Route::get('batch', [BatchController::class, 'index'])->name('batch.index');
+    Route::get('batch/{id}', [BatchController::class, 'show'])->name('batch.show');
+    Route::get('batch/{id}/edit', [BatchController::class, 'edit'])->name('batch.edit');
+    Route::put('batch/{id}/edit', [BatchController::class, 'update'])->name('batch.update');
+    Route::delete('batch/{id}', [BatchController::class, 'destroy'])->name('batch.destroy');
+    Route::post('batch/search', [BatchController::class, 'search'])->name('batch.search');
 
-//
-//    Route::get('faculty/create', [FacultyController::class, 'create'])->name('faculty.create');
-//    Route::post('faculty', [FacultyController::class, 'store'])->name('faculty.store');
-//    Route::get('faculty', [FacultyController::class, 'index'])->name('faculty.index');
-//    Route::get('faculty/{id}', [FacultyController::class, 'show'])->name('faculty.show');
-//    Route::get('faculty/{id}/edit', [FacultyController::class, 'edit'])->name('faculty.edit');
-//    Route::put('faculty/{id}/edit', [FacultyController::class, 'update'])->name('faculty.update');
-//    Route::delete('faculty/{id}', [FacultyController::class, 'destroy'])->name('faculty.destroy');
+    Route::get('faculty/active', [FacultyController::class, 'active'])->name('faculty.active');
+    Route::get('faculty/create', [FacultyController::class, 'create'])->name('faculty.create');
+    Route::post('faculty', [FacultyController::class, 'store'])->name('faculty.store');
+    Route::get('faculty', [FacultyController::class, 'index'])->name('faculty.index');
+    Route::get('faculty/{id}', [FacultyController::class, 'show'])->name('faculty.show');
+    Route::get('faculty/{id}/edit', [FacultyController::class, 'edit'])->name('faculty.edit');
+    Route::put('faculty/{id}/edit', [FacultyController::class, 'update'])->name('faculty.update');
+    Route::delete('faculty/{id}', [FacultyController::class, 'destroy'])->name('faculty.destroy');
 
 //    Route::get('/search', 'BatchController@search');
 //    Route::get('/search', 'IssueController@search');

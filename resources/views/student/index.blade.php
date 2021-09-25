@@ -59,7 +59,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Faculty</th>
-                            <th>Created_At</th>
+                            <th>Phone</th>
                             <th>Status</th>
                             <th class="no_print">Action</th>
                         </tr>
@@ -71,7 +71,7 @@
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->email}}</td>
                                 <td>{{$row->FacultyId->faculty}}</td>
-                                <td>{{$row->created_at}}</td>
+                                <td>{{$row->phone}}</td>
 
                                 <td>
                                     @if($row->status==1)

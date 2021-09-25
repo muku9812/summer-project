@@ -8,7 +8,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Issue Book
-                            <a href="#" class="btn btn-success">Issued List</a>
+                            <a href="{{route('issue.index')}}" class="btn btn-success">Issued List</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -71,47 +71,52 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
-{{--                            <label for="renew_data" class="control-label">Renew Date</label>--}}
-                            <input type="text" name="renew_data" class="form-control" id="renew_data" value="<?php echo date("Y-m-d") ?>"  hidden>
-                            @error('renew_data')
-                            <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
+
 
 
                         <div class="form-group">
                             <label for="status">Status </label>
-                            @if ( $data['row']->status== 0 )
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio"  name='status' id="active" value="1" > Return
-                                    <input class="form-check-input" type="radio" name='status' id="deactive" value="0" checked> Pending
+{{--                            @if ( $data['row']->status== 0 )--}}
+{{--                                <div class="form-check form-check-inline">--}}
+{{--                                    <input class="form-check-input" type="radio"  name='status' id="active" value="1" > Return--}}
+{{--                                    <input class="form-check-input" type="radio" name='status' id="deactive" value="0" checked> Pending--}}
 
-                                </div>
-                            @else
-                                <div class="form-check form-check-inline">
+{{--                                </div>--}}
+{{--                            @else--}}
 
-                                    <input class="form-check-input" type="radio"  name='status' id="active" value="1" checked> Return
-                                    <input class="form-check-input" type="radio" name='status' id="deactive" value="0" > Pending
-                                </div>
-                            @endif
+{{--                                <div class="form-check form-check-inline">--}}
+
+{{--                                    <input class="form-check-input" type="radio"  name='status' id="active" value="1" checked> Return--}}
+{{--                                    <input class="form-check-input" type="radio" name='status' id="deactive" value="0" > Pending--}}
+{{--                                </div>--}}
+{{--                            @endif--}}
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"  name='status' id="active" value="1" checked > Return
+
+                            </div>
                             @error('status')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
+
+
+
+
+
+
 {{--                        <div class="form-group">--}}
-{{--                            <label for="return_date" class="control-label">Return Date</label>--}}
-{{--                            <input type="text" name="return_date" class="form-control" id="return_date" value="<?php echo date("Y-m-d") ?>" >--}}
-{{--                            @error('issue_date')--}}
+{{--                            <label for="renew_date" class="control-label">Renew Date</label>--}}
+{{--                            <input type="date" name="renew_date" class="form-control" id="renew_date" value="<?php echo date("Y-m-d") ?>" >--}}
+{{--                            @error('renew_date')--}}
 {{--                            <p class="text-danger">{{ $message }}</p>--}}
 {{--                            @enderror--}}
 {{--                        </div>--}}
 
 
-
                         <div class="form-group">
                             <label for="return_date" class="control-label">Return Date</label>
-                            <input type="date" name="return_date" class="form-control" id="return_date" value="{{$data['row']->return_date}}">
+                            <input type="date" name="return_date" class="form-control" id="return_date" value="{{$data['row']->return_date}}" readonly>
                             @error('return_date')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -120,7 +125,17 @@
 
 
                         <div class="form-group">
-                            <input type="submit" value="save" class="btn btn-primary">
+                            <label for="Book_return_on" class="control-label">Book Return On</label>
+                            <input type="text" name="Book_return_on" class="form-control" id="Book_return_on" value="<?php echo date("Y-m-d") ?>" >
+                            @error('Book_return_on')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <input type="submit" value="Return" class="btn btn-primary">
 
                         </div>
                     </form>

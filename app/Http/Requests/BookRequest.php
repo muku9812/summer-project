@@ -24,7 +24,7 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'name' => 'required|regex:/^[\pL\s\- ]+$/u',
             'publisher' => 'required|regex:/^[a-zA-Z]+$/',
             'quantity' => 'required',
             'author' => 'required',

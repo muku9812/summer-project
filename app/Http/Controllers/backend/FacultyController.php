@@ -89,7 +89,7 @@ class FacultyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FacultyRequest $request, $id)
     {
         $data['row'] = Faculty::find($id);
         if(!$data ['row']){
@@ -126,5 +126,12 @@ class FacultyController extends Controller
         }
         return redirect()->route('faculty.index');
 
+    }
+    public function active()
+    {
+
+        $data['sb_active']=faculty::where('status','1')->get();
+        return view('faculty/active',compact('data'));
+//        return view('student/active');
     }
 }
