@@ -126,11 +126,17 @@
 
                         <div class="form-group">
                             <label for="Book_return_on" class="control-label">Book Return On</label>
-                            <input type="text" name="Book_return_on" class="form-control" id="Book_return_on" value="<?php echo date("Y-m-d") ?>" >
+                            @if($data['row']->Book_return_on)
+                                <input type="text" name="Book_return_on" class="form-control" id="Book_return_on" value="{{$data['row']->Book_return_on}}" readonly>
+                            @else
+                                <input type="text" name="Book_return_on" class="form-control" id="Book_return_on" value="<?php echo date("Y-m-d") ?>" >
+                            @endif
                             @error('Book_return_on')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
+
+
 
 
 

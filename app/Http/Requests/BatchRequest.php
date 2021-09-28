@@ -24,7 +24,7 @@ class BatchRequest extends FormRequest
     public function rules()
     {
         return [
-            'year' => 'digits:4|integer|min:1996|max:'.(date('Y')),
+            'year' => 'digits:4|unique:batch,year|integer|min:1996|max:'.(date('Y')),
             'status' => 'required'
         ];
     }

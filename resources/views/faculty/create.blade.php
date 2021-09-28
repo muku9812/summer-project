@@ -32,7 +32,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="faculty">Faculty</label>
-                            <input type="text" class="form-control" placeholder="Enter Faculty to add " name="faculty" id="faculty"  >
+                            <input type="text" class="form-control" placeholder="Enter Faculty to add " name="faculty" id="faculty" value="{{old('faculty')}}" >
                             @error('faculty')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror

@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('student_id');
             $table->string('user_id');
             $table->unsignedBigInteger('book_id');
+            $table->integer('fine')->nullable();
             $table->date('return_date');
             $table->date('Book_return_on')->nullable();
             $table->date('renew_date')->nullable();

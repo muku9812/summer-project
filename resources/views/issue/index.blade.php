@@ -75,6 +75,7 @@
                                 <th>Student Name</th>
                                 <th>Batch Year</th>
                                 <th>Book Name</th>
+                                <th>Fine Amount</th>
                                 <th>Issued By</th>
                                 <th>Issued Date</th>
                                 <th>Return Date</th>
@@ -92,6 +93,8 @@
                                     <td>{{$row->StudentId->name}}</td>
                                     <td>{{$row->BatchId->year}}</td>
                                     <td>{{$row->BookId->name}}</td>
+                                    <td>Rs.{{$row->fine}}</td>
+
                                     <td>{{$row->user_id}}</td>
                                     <td>{{$row->issue_date}}</td>
                                     <td>{{$row->return_date}}</td>

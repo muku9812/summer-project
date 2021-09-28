@@ -33,14 +33,14 @@
                         <div class="form-group">
 
                             <label for="name">Name</label>
-                            <input type="text" placeholder="Enter Student name" class="form-control" name="name" id="name" >
+                            <input type="text" placeholder="Enter Student name" class="form-control" name="name" id="name" value="{{old('name')}}" >
                             @error('name')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="Email">Email</label>
-                            <input type="text" class="form-control" placeholder="Enter Email of Student " name="email" id="email" >
+                            <input type="text" class="form-control" placeholder="Enter Email of Student " name="email" id="email" value="{{old('email')}}">
                             @error('email')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -74,7 +74,7 @@
 
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="text" class="form-control" placeholder="Enter student Phone" name="phone" id="phone" >
+                            <input type="text" class="form-control" placeholder="Enter student Phone" name="phone" id="phone" value="{{old('phone')}}" >
                             @error('phone')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror

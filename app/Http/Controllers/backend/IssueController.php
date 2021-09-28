@@ -8,14 +8,15 @@ use App\Models\Batch;
 use App\Models\Book;
 use App\Models\Issue;
 use App\Models\Student;
+use Carbon\Carbon;
 use Hamcrest\Core\Is;
 use Illuminate\Http\Request;
 //use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Date;
 use Maatwebsite\Excel\Facades\Excel;
-use db;
-
-
+use Illuminate\Support\Facades\DB;
+use Nette\Utils\DateTime;
 
 
 class IssueController extends Controller
@@ -104,6 +105,19 @@ class IssueController extends Controller
         $data['book_id'] = Book::all();
         $data['batch_id'] = Batch::all();
         $data['row'] = Issue::find($id);
+
+//        $from = $data['row']->issue_date;
+//        $to = Carbon::now()->format('Y-m-d');
+//
+//        $datetime1 = new Date($from);
+//        $datetime2 = new Date($to);
+//        $interval = $datetime1->diff($datetime2);
+//        dd($interval);
+
+
+
+
+
         if(!$data ['row']){
             request()->session()->flash('error','Invalid Request');
             return redirect()->route('issue.index');
@@ -121,15 +135,47 @@ class IssueController extends Controller
     public function update(Request $request,$id)
     {
         $data['row'] = Issue::find($id);
+        $today_date = Carbon::parse($request->input('Book_return_on'))->toDateString();
+        $return_date = Carbon::parse($data['row']->return_date);
+//        dd($today_date);
+//        $today_date = Carbon::now()->toDateString();
+        if ($return_date >= $today_date){
+            $fine = 0;
+//            $request->request->add(['fine'=>$fine]);
+            DB::table('transactions')
+                ->where('id',$id)
+                ->update([
+                    'fine' => $fine,
+                ]);
+//            $request->request->add(['Book_return_on'=>$today_date]);
+            if ($data['row']->update($request->all())) {
+                $request->session()->flash('success', 'Book Renew Successfully');
+            } else {
+                $request->session()->flash('error', 'Book Renew failed');
+
+            }
+        } else{
+            $diff = $return_date->diffInDays($today_date);
+            $fine = $diff * 2;
+            DB::table('transactions')
+                ->where('id',$id)
+                ->update([
+                    'fine' => $fine,
+                ]);
+            $request->request->add(['Book_return_on'=>$today_date]);
+            if ($data['row']->update($request->all())) {
+                $request->session()->flash('success', 'Book Renew Successfully');
+            } else {
+                $request->session()->flash('error', 'Book Renew failed');
+
+            }
+//            dd('fine');
+        }
+
+//        dd($diff);
         if(!$data ['row']){
             request()->session()->flash('error','Invalid Request');
             return redirect()->route('issue.index');
-        }
-        if ($data['row']->update($request->all())) {
-            $request->session()->flash('success', 'Book Renew Successfully');
-        } else {
-            $request->session()->flash('error', 'Book Renew failed');
-
         }
         return redirect()->route('issue.index');
     }
@@ -235,6 +281,7 @@ class IssueController extends Controller
     }
     public function return()
     {
+
         $data=Issue::all();
         $data['rows'] = Issue::all();
         $data['return'] = Issue::where('status','1')->get();
