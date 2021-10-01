@@ -88,7 +88,7 @@ class BatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BatchRequest $request, $id)
+    public function update(request $request, $id)
     {
         $data['row'] = Batch::find($id);
         if(!$data ['row']){

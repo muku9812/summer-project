@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Issue Book
+                        <h1>Renew Book
                             <a href="{{route('issue.index')}}" class="btn btn-success">Issued List</a>
                         </h1>
                     </div>

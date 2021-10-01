@@ -68,7 +68,7 @@
 
                             <tr>
                                 <th>Renew date</th>
-                                <td>{{$data['row']->renew_data}}</td>
+                                <td>{{$data['row']->renew_date}}</td>
                             </tr>
 
                             <tr>

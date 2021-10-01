@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add Batch
+                        <h1>Update Batch
                             <a href="{{route('batch.index')}}" class="btn btn-success">Batch List</a>
                         </h1>
                     </div>
@@ -28,7 +28,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{route('batch.update',$data['row']->id)}}" method='POST'>
+                    <form action="{{route('batch.update',$data['row']->id)}}" name="myform" method='POST' onsubmit="return validateForm()">
                         <input type="hidden" name="_method" value="PUT"/>
                         @csrf
                         <div class="form-group">
@@ -71,9 +71,33 @@
                     <!-- /.card-footer-->
                 </div>
                 <!-- /.card -->
-
+            </div>
         </section>
         <!-- /.content -->
     </div>
+
+@endsection
+@section('js')
+    <script type="text/javascript">
+    function validateForm(){
+        var year=document.myform.year.value;
+        let date =  new Date().getFullYear()
+
+        if (year==null || year=="") {
+            alert("year can't be blank");
+            return false;
+        }else if(year.length<4){
+            alert("year must contain 4 digit.");
+            return false;
+        }else if(year < 1996){
+            alert("year must be greater than or equal to 1996.");
+            return false;
+        }else if(year > date){
+            alert("please select valid year.");
+            return false;
+        }
+
+    }
+    </script>
 
 @endsection

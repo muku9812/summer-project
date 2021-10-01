@@ -29,13 +29,14 @@
 
                 <div class="card-body">
 
-                    <form action="{{route('student.update',$data['row']->id)}}" method='POST'>
+                    <form action="{{route('student.update',$data['row']->id)}}" method='POST'  name="myform" onsubmit="return validateForm()">
                         <input type="hidden" name="_method" value="PUT"/>
                         @csrf
                         <div class="form-group">
 
                             <label for="name">Name</label>
                             <input type="text" value="{{$data['row']->name}}" class="form-control" name="name" id="name" >
+                            <span style='color: red' id="nameloc" ></span>
                             @error('name')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -43,6 +44,7 @@
                         <div class="form-group">
                             <label for="Email">Email</label>
                             <input type="text" class="form-control" value="{{$data['row']->email}}"  name="email" id="email" >
+                            <span style='color: red' id="emailerr" ></span>
                             @error('email')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -85,6 +87,7 @@
                         <div class="form-group">
                             <label for="phone">Phone</label>
                             <input type="text" class="form-control" value="{{$data['row']->phone}}"  name="phone" id="phone" >
+                            <span style='color: red' id="numerr" ></span>
                             @error('phone')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -128,5 +131,58 @@
         </section>
         <!-- /.content -->
     </div>
+
+@endsection
+@section('js')
+    <script type="text/javascript">
+        function validateForm(){
+
+
+            var phone=document.myform.phone.value;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+
+            if (phone==null || phone=="") {
+                document.getElementById("numerr").innerHTML=
+                    "  Please enter Number";
+                return false;
+
+            }else if(!$('#phone').val().match('[0-9]{10}')){
+                document.getElementById("numerr").innerHTML=
+                    "  Please enter valid  Number";
+                return false;
+            }
+
+            var email=document.myform.email.value;
+
+            if(email == null || email == "" ){
+                document.getElementById("emailerr").innerHTML=
+                    "  Please enter Email Address";
+                // alert("please enter the email address")
+                return false;
+            }else if(!filter.test(email)){
+                document.getElementById("emailerr").innerHTML=
+                    "  Please provide a valid email address";
+
+                // alert('Please provide a valid email address');
+                email.focus;
+                return false;
+
+
+            }
+
+            var name=document.myform.name.value;
+            if (name==null || name=="") {
+                document.getElementById("nameloc").innerHTML=
+                    "  Please enter Student name";
+                return false;
+            }else if(name != letters){
+                alert("Please enter correct name.");
+                return false;
+            }
+
+        }
+
+    </script>
 
 @endsection

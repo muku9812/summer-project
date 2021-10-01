@@ -23,7 +23,7 @@ use App\Http\Controllers\backend\ReturnController;
 //Route::get('/', 'IssueController@index');
 //Route::get('/status/update', 'IssueController@updateStatus')->name('backend.issue.update.status');
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();

@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add Book
+                        <h1>Upate Book
                         <a href="{{route('book.index')}}" class="btn btn-success">Book List</a>
                         </h1>
                     </div>

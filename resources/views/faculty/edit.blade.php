@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add Batch
+                        <h1>Update Faculty
                             <a href="{{route('faculty.index')}}" class="btn btn-success">faculty List</a>
                         </h1>
                     </div>
@@ -28,7 +28,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{route('faculty.update',$data['row']->id)}}" method='POST'>
+                    <form action="{{route('faculty.update',$data['row']->id)}}" method='POST' name="myform" onsubmit="return validateForm()">
                         <input type="hidden" name="_method" value="PUT"/>
                         @csrf
                         <div class="form-group">
@@ -71,9 +71,29 @@
                     <!-- /.card-footer-->
                 </div>
                 <!-- /.card -->
+            </div>
 
         </section>
         <!-- /.content -->
     </div>
+
+@endsection
+@section('js')
+    <script type="text/javascript">
+        function validateForm(){
+            var faculty=document.myform.faculty.value;
+            var regEx = /^[A-Za-z]+$/;
+
+            if (faculty==null || faculty=="") {
+                alert("Faculty can't be blank");
+                return false;
+            }
+               else if( !faculty.value.match(regEx)){
+                alert("Please enter correct faculty.");
+                return false;
+            }
+
+        }
+    </script>
 
 @endsection
