@@ -28,7 +28,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{route('student.store')}}" method='POST'>
+                    <form action="{{route('student.store')}}" method='POST' >
                         @csrf
                         <div class="form-group">
 
@@ -49,7 +49,7 @@
                         <div class="form-group">
                         <label for="faculty_id" class="control-label">Faculty</label>
                         <select name="faculty_id" class="form-control" id="faculty_id">
-                            <option value="">Select Class</option>
+                            <option value="">Select Faculty</option>
                             @foreach($data['faculty_id'] as $faculty)
                                 <option value="{{$faculty->id}}">{{$faculty->faculty}}</option>
                             @endforeach
@@ -58,7 +58,7 @@
                         <div class="form-group">
                             <label for="batch_id" class="control-label">Batch</label>
                             <select name="batch_id" class="form-control" id="batch_id">
-                                <option value="">Select Class</option>
+                                <option value="">Select Batch</option>
                                 @foreach($data['batch_id'] as $batch)
                                     <option value="{{$batch->id}}">{{$batch->year}}</option>
                                 @endforeach
@@ -104,8 +104,12 @@
                 </div>
                 <!-- /.card -->
 
+            </div>
         </section>
         <!-- /.content -->
     </div>
 
 @endsection
+
+
+

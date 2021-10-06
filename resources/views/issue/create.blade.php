@@ -83,14 +83,14 @@
 
                         <div class="form-group">
                             <label for="issue_date" class="control-label">Issue Date</label>
-                            <input type="text" name="issue_date" class="form-control" id="issue_date" value="<?php echo date("Y-m-d") ?>" readonly>
+                            <input type="date" name="issue_date" class="form-control" id="issue_date" min="<?php echo date("Y-m-d"); ?>"  value="<?php echo date("Y-m-d")  ?>" readonly>
                             @error('issue_date')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="return_date" class="control-label">Return Date</label>
-                            <input type="date" name="return_date" class="form-control" id="return_date">
+                            <input type="date" name="return_date" class="form-control" id="return_date" min="<?php echo date("Y-m-d"); ?>">
                             @error('return_date')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
