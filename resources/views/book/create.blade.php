@@ -8,7 +8,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Add Book
-                        <a href="{{route('book.index')}}" class="btn btn-success">Book List</a>
+                        <a href="{{route('book.index')}}" class="btn btn-success btn-sm">Book List</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -100,6 +100,7 @@
 
                 </div>
                 <!-- /.card-footer-->
+            </div>
             </div>
             <!-- /.card -->
 

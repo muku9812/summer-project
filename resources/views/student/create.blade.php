@@ -8,7 +8,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Add Student
-                            <a href="{{route('student.index')}}" class="btn btn-success">Show Students</a>
+                            <a href="{{route('student.index')}}" class="btn btn-success btn-sm">Show Students</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">

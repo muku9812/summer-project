@@ -9,8 +9,8 @@
                     <div class="col-sm-6">
 
                         <h1>{{$data['row']->name}} S Information
-                            <a href="{{route('student.create')}}" class="btn btn-success">Add Student</a>
-                            <a href="{{route('student.index')}}" class="btn btn-info">Student List</a>
+                            <a href="{{route('student.create')}}" class="btn btn-success btn-sm">Add Student</a>
+                            <a href="{{route('student.index')}}" class="btn btn-info btn-sm">Student List</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -87,7 +87,7 @@
                     <!-- /.card-footer-->
                 </div>
                 <!-- /.card -->
-
+            </div>
         </section>
         <!-- /.content -->
     </div>

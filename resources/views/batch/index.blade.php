@@ -9,7 +9,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Batch List
-                            <a href="{{route('batch.create')}}" class="btn btn-success">Add Batch</a>
+                            <a href="{{route('batch.create')}}" class="btn btn-success btn-sm">Add Batch</a>
                         </h1>
                     </div>
 {{--                    <div class="col-sm-6">--}}
@@ -35,12 +35,7 @@
                 <div class="card">
 
                     <div class="dataTable" id="tables">
-                        @if(Session::has('success'))
-                            <p class="alert alert-success">{{Session::get('success')}}</p>
-                        @endif
-                        @if(Session::has('error'))
-                            <p class="alert alert-danger">{{Session::get('danger')}}</p>
-                        @endif
+
                             <table id="datatable" class="table table-striped" style="width:100%" >
                                 <thead>
                             <tr>
@@ -65,12 +60,12 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{route('batch.show',$row->id)}}" class="btn btn-success">View</a>
-                                        <a href="{{route('batch.edit',$row->id)}}"  class="btn btn-primary">Update</a>
-                                        <form action="{{route('batch.destroy',$row->id)}}" method="post">
+                                        <a href="{{route('batch.show',$row->id)}}" class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a href="{{route('batch.edit',$row->id)}}"  class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+                                        <form action="{{route('batch.destroy',$row->id)}}" method="post" class="d-inline">
                                             <input type="hidden" name="_method" value="delete" />
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
                                         </form>
                                     </td>

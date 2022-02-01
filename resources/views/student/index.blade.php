@@ -2,15 +2,7 @@
 
 @section('content')
 
-    <style type="text/css">
-        /*if you want to remove some content in print display then use .no_print class on it */
-        @media print {
-            #datatable_wrapper .row:first-child {display:none;}
-            #datatable_wrapper .row:last-child {display:none;}
-            .no_print {display:none;}
-        }
 
-    </style>
 
 
 
@@ -21,9 +13,9 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Students information
-                            <a href="{{route('student.create')}}" class="btn btn-success">Add Student</a>
-                            <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
-                            <a href="{{route('student.active')}}" class="btn btn-primary text-white" id="printBtn">Active</a>
+                            <a href="{{route('student.create')}}" class="btn btn-success btn-sm">Add Student</a>
+                            <a class="btn btn-primary text-white btn-sm" id="printBtn">Print / PDF</a>
+                            <a href="{{route('student.active')}}" class="btn btn-info text-white btn-sm" id="printBtn">Active</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -82,12 +74,12 @@
                                 </td>
 
                                 <td class="no_print">
-                                    <a href="{{route('student.show',$row->id)}}" class="btn btn-success">View</a>
-                                    <a href="{{route('student.edit',$row->id)}}" class="btn btn-primary">Update</a>
-                                    <form action="{{route('student.destroy',$row->id)}}" method="post">
+                                    <a href="{{route('student.show',$row->id)}}"  class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a href="{{route('student.edit',$row->id)}}"class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+                                    <form action="{{route('student.destroy',$row->id)}}" method="post" class="d-inline">
                                         <input type="hidden" name="_method" value="delete" />
                                         @csrf
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="submit"  class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
                                     </form>
                                 </td>
@@ -101,13 +93,13 @@
                     </div>
 
                 </div>
-                <!-- /.card -->
-        </section>
+            </section>
         @include('ajax.script')
         <!-- /.content -->
         </section>
-
+    </div>
 @endsection
+
 
 
 

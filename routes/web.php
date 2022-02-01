@@ -129,6 +129,8 @@ Route::middleware(['web','auth'])->group(function() {
     Route::delete('batch/{id}', [BatchController::class, 'destroy'])->name('batch.destroy');
     Route::post('batch/search', [BatchController::class, 'search'])->name('batch.search');
 
+
+    Route::get('/changeStatus',[FacultyController::class,'ChangeStatus'])->name('ChangeStatus');
     Route::get('faculty/active', [FacultyController::class, 'active'])->name('faculty.active');
     Route::get('faculty/create', [FacultyController::class, 'create'])->name('faculty.create');
     Route::post('faculty', [FacultyController::class, 'store'])->name('faculty.store');

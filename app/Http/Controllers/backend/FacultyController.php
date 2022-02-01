@@ -134,4 +134,12 @@ class FacultyController extends Controller
         return view('faculty/active',compact('data'));
 //        return view('student/active');
     }
+    public function ChangeStatus(Request $request){
+
+        $data['rows'] = Faculty::find($request->row_id);
+        $data['rows'] -> status=$request->status;
+        $data['rows']  ->save();
+
+
+    }
 }

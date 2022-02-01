@@ -5,15 +5,15 @@
 
 @section('content')
 
-    <style type="text/css">
-        /*if you want to remove some content in print display then use .no_print class on it */
-        @media print {
-            #datatable_wrapper .row:first-child {display:none;}
-            #datatable_wrapper .row:last-child {display:none;}
-            .no_print {display:none;}
-        }
+{{--    <style type="text/css">--}}
+{{--        /*if you want to remove some content in print display then use .no_print class on it */--}}
+{{--        @media print {--}}
+{{--            #datatable_wrapper .row:first-child {display:none;}--}}
+{{--            #datatable_wrapper .row:last-child {display:none;}--}}
+{{--            .no_print {display:none;}--}}
+{{--        }--}}
 
-    </style>
+{{--    </style>--}}
 
 
     <div class="content-wrapper">
@@ -22,11 +22,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Students information
-                            <a href="{{route('issue.create')}}" class="btn btn-success">Issue Book</a>
+                        <h1>Book Pending List
+                            <a href="{{route('issue.create')}}" class="btn btn-success btn-sm">Issue Book</a>
 
-                            <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
-                            <a href="{{route('issue.index')}}" class="btn btn-dark">Issue List</a>
+                            <a class="btn btn-primary text-white btn-sm" id="printBtn">Print / PDF</a>
+                            <a href="{{route('issue.index')}}" class="btn btn-dark btn-sm">Issue List</a>
 
                             {{--                            <form action = '/excel'>--}}
                             {{--                                <input type="submit" value="Download excel">--}}
@@ -78,7 +78,7 @@
                                 <th>Issued By</th>
                                 <th>Issued Date</th>
                                 <th>Return Date</th>
-                                <th>Status</th>
+{{--                                <th>Status</th>--}}
                                 <th class="no_print">Action</th>
                             </tr>
                             </thead>
@@ -97,13 +97,13 @@
 
                                     {{--                                        <input data-id="{{$row->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Returned" data-off="Pending" {{ $row->status ? 'checked' : '' }} >--}}
                                     {{--                                    </td>--}}
-                                    <td>
-                                        @if($row->status==1)
-                                            <p style="color:Green"><b>Return</b></p>
-                                        @else
-                                            <p style="color:red"><b>Pending</b></p>
-                                        @endif
-                                    </td>
+{{--                                    <td>--}}
+{{--                                        @if($row->status==1)--}}
+{{--                                            <p style="color:Green"><b>Return</b></p>--}}
+{{--                                        @else--}}
+{{--                                            <p style="color:red"><b>Pending</b></p>--}}
+{{--                                        @endif--}}
+{{--                                    </td>--}}
 
 
 

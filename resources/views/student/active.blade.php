@@ -2,15 +2,15 @@
 
 @section('content')
 
-    <style type="text/css">
-        /*if you want to remove some content in print display then use .no_print class on it */
-        @media print {
-            #datatable_wrapper .row:first-child {display:none;}
-            #datatable_wrapper .row:last-child {display:none;}
-            .no_print {display:none;}
-        }
+{{--    <style type="text/css">--}}
+{{--        /*if you want to remove some content in print display then use .no_print class on it */--}}
+{{--        @media print {--}}
+{{--            #datatable_wrapper .row:first-child {display:none;}--}}
+{{--            #datatable_wrapper .row:last-child {display:none;}--}}
+{{--            .no_print {display:none;}--}}
+{{--        }--}}
 
-    </style>
+{{--    </style>--}}
 
 
 
@@ -20,12 +20,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Students information
-                            <a href="{{route('student.create')}}" class="btn btn-success">Add Student</a>
-                            <a href="{{route('student.index')}}" class="btn btn-dark">All Students</a>
-                            <a href="{{route('student.deactive')}}" class="btn btn-info">Deactive Students</a>
+                        <h1>Active Student List
+                            <a href="{{route('student.create')}}" class="btn btn-success btn-sm">Add Student</a>
+                            <a href="{{route('student.index')}}" class="btn btn-dark btn-sm">All Students</a>
+                            <a href="{{route('student.deactive')}}" class="btn btn-info btn-sm">Deactive Students</a>
 
-                            <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
+                            <a class="btn btn-primary text-white btn-sm" id="printBtn">Print / PDF</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -84,7 +84,7 @@
                                     </td>
 
                                     <td class="no_print">
-                                        <a href="{{route('student.show',$row->id)}}" class="btn btn-success">View</a>
+                                        <a href="{{route('student.show',$row->id)}}" class="btn btn-success btn-sm">View</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -97,10 +97,12 @@
 
                 </div>
                 <!-- /.card -->
-            </section>
         @include('ajax.script')
         <!-- /.content -->
         </section>
+
+    </div>
+
 
         @endsection
 

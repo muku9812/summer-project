@@ -5,15 +5,15 @@
 
 @section('content')
 
-    <style type="text/css">
-        /*if you want to remove some content in print display then use .no_print class on it */
-        @media print {
-            #datatable_wrapper .row:first-child {display:none;}
-            #datatable_wrapper .row:last-child {display:none;}
-            .no_print {display:none;}
-        }
+{{--    <style type="text/css">--}}
+{{--        /*if you want to remove some content in print display then use .no_print class on it */--}}
+{{--        @media print {--}}
+{{--            #datatable_wrapper .row:first-child {display:none;}--}}
+{{--            #datatable_wrapper .row:last-child {display:none;}--}}
+{{--            .no_print {display:none;}--}}
+{{--        }--}}
 
-    </style>
+{{--    </style>--}}
 
 
     <div class="content-wrapper">
@@ -21,32 +21,19 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>Students information
-                            <a href="{{route('issue.create')}}" class="btn btn-success">Issue Book</a>
-                            <a href="{{route('issue.pending')}}" class="btn btn-success">Pending List</a>
-                            <a href="{{route('issue.return')}}" class="btn btn-info">Return List</a>
-                            <a class="btn btn-primary text-white" id="printBtn">Print / PDF</a>
 
-                            {{--                            <form action = '/excel'>--}}
-{{--                                <input type="submit" value="Download excel">--}}
-{{--                                <form>--}}
+
+                    <div class="col-sm-6">
+                        <h1>Book Issued information
+                            <a href="{{route('issue.create')}}" class="btn btn-success btn-sm">Issue Book</a>
+                            <a href="{{route('issue.pending')}}" class="btn btn-dark btn-sm">Pending List</a>
+                            <a href="{{route('issue.return')}}" class="btn btn-info btn-sm">Return List</a>
+
+                            <a class="btn btn-primary text-white btn-sm" id="printBtn">Print / PDF</a>
                         </h1>
                     </div>
+
                     <div class="col-sm-6">
-{{--                        <ol class="breadcrumb float-sm-right">--}}
-{{--                            <div class="search-container">--}}
-{{--                                <form action="{{route('issue.index')}}">--}}
-{{--                                    <input type="text" placeholder="Search.." name="search">--}}
-{{--                                    <button type="submit"><i class="fa fa-search"></i></button>--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
-{{--                            <form class="form-inline my-2 my-lg-0" method="post" action="{{route('issue.search')}}">--}}
-{{--                                @csrf--}}
-{{--                                <input type="text" class="form-control mr-sm-2" placeholder="Search Batch" name="query" id="query" aria-label="search">--}}
-{{--                                <button class="btn btn-light my-2 my-sm-0" type="submit">Submit</button>--}}
-{{--                            </form>--}}
-{{--                        </ol>--}}
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -61,12 +48,7 @@
                 <div class="card">
 
                <div class="dataTable" id="tables">
-                        @if(Session::has('success'))
-                            <p class="alert alert-success">{{Session::get('success')}}</p>
-                        @endif
-                        @if(Session::has('error'))
-                            <p class="alert alert-danger">{{Session::get('danger')}}</p>
-                        @endif
+
                         <table id="datatable" class="table table-striped" >
                             <thead>
 
@@ -98,7 +80,11 @@
                                     <td>{{$row->user_id}}</td>
                                     <td>{{$row->issue_date}}</td>
                                     <td>{{$row->return_date}}</td>
-                                    <td>{{$row->Book_return_on}}</td>
+                                    <td> @if($row->Book_return_on == 0 || $row->Book_return_on== NULL)
+                                             Not Return Yet
+                                        @else
+                                        {{$row->Book_return_on}}
+                                    @endif
 {{--                                    <td>--}}
 
 {{--                                        <input data-id="{{$row->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Returned" data-off="Pending" {{ $row->status ? 'checked' : '' }} >--}}
@@ -114,9 +100,9 @@
 
 
                                     <td class="no_print">
-                                        <a href="{{route('issue.show',$row->id)}}" class="btn btn-success">View</a>
-                                        <a href="{{route('issue.edit',$row->id)}}" class="btn btn-danger">Return</a>
-                                        <a href="{{route('issue.renew',$row->id)}}" class="btn btn-dark">Renew</a>
+                                        <a href="{{route('issue.show',$row->id)}}" class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a href="{{route('issue.edit',$row->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-exchange-alt" aria-hidden="true"></i></a>
+                                        <a href="{{route('issue.renew',$row->id)}}" class="btn btn-dark btn-sm d-inline"><i class="fa fa-redo " aria-hidden="true"></i></a>
 {{--                                        <a href="{{route('issue.edit2',$row->id)}}" class="btn btn-secondary">Return</a>--}}
 {{--                                        <form action="#" method="post">--}}
 {{--                                            <input type="hidden" name="_method" value="delete" />--}}
@@ -137,7 +123,7 @@
                 </div>
             </section>
      </section>
-        </div>
+    </div>
 
 @endsection
 {{--@section('javascript')--}}

@@ -8,8 +8,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>{{$data['row']->name}} Book Information
-                            <a href="{{route('book.create')}}" class="btn btn-success">Add Book</a>
-                            <a href="{{route('book.index')}}" class="btn btn-info">Books List</a>
+                            <a href="{{route('book.create')}}" class="btn btn-success btn-sm">Add Book</a>
+                            <a href="{{route('book.index')}}" class="btn btn-info btn-sm">Books List</a>
                         </h1>
                     </div>
                     <div class="col-sm-6">
